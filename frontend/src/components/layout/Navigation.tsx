@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import imgLogo from '@/features/landing/assets/logo.png';
 
 const imgUserIcon = 'https://www.figma.com/api/mcp/asset/53e9ddfd-7714-4ba0-a4d0-e0888b532e88';
 const imgBagIcon = 'https://www.figma.com/api/mcp/asset/31fcc6a3-21f5-49eb-9fdf-c46adfeb0dde';
@@ -12,7 +14,7 @@ function Navigation() {
       <div className="w-[90vw] md:w-[90vw] h-full grid grid-cols-9 items-center">
         {/* Left Navigation - Columns 1-4 with 7.5% left padding */}
         <nav className="col-span-4 pl-[7.5vw] flex gap-[3vw] items-center">
-          <a href="/" className="text-[1.2vw] md:text-[1vw] text-[#701620] hover:text-[#901825] transition-colors duration-300">Trang Chủ</a>
+          <Link href="/" className="text-[1.2vw] md:text-[1vw] text-[#701620] hover:text-[#901825] transition-colors duration-300">Trang Chủ</Link>
           <a href="/about" className="text-[1.2vw] md:text-[1vw] text-[#2c2c2c] hover:text-[#701620] transition-colors duration-300">Về chúng tôi</a>
           <a href="/shop" className="text-[1.2vw] md:text-[1vw] text-[#2c2c2c] hover:text-[#701620] transition-colors duration-300">Cửa hàng</a>
         </nav>
@@ -20,7 +22,7 @@ function Navigation() {
         {/* Center Logo - Column 5 (middle) */}
         <div className="col-span-1 flex justify-center">
           <div className="relative w-[5vw] h-[6vw] md:w-[3vw] md:h-[4vw]">
-            <Image src="/logo.svg" alt="NhoNho Logo" fill className="object-contain" />
+            <Image src={imgLogo} alt="NhoNho Logo" fill className="object-contain" />
           </div>
         </div>
 

@@ -51,7 +51,7 @@ function AboutUs() {
                 Tận tâm và minh bạch – nền tảng của niềm tin
               </h4>
               <p className="font-['Myriad_Pro:Regular'] text-[1.4vh] md:text-[1.9vh] text-[#fff5f5] leading-[1.5]">
-                Mỗi chai vang tại NhoNho đều được xác thực qua Vivino và tuân thủ triết lý "Giao vang như giao vàng" – bảo chứng cho chất lượng và sự tin cậy.
+                Mỗi chai vang tại NhoNho đều được xác thực qua Vivino và tuân thủ triết lý &quot;Giao vang như giao vàng&quot; – bảo chứng cho chất lượng và sự tin cậy.
               </p>
             </div>
 

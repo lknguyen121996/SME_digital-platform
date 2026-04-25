@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 const imgMastercardLogo1 = 'https://www.figma.com/api/mcp/asset/6e481f55-4ba5-46be-97cb-9206f874ca6c';

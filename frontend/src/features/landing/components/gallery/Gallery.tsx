@@ -17,7 +17,7 @@ function GalleryItem({ src, isActive }: { src: string; isActive: boolean }) {
         isActive ? 'opacity-100' : 'opacity-0 absolute'
       }`}
     >
-      <img src={src} alt="" className="w-full h-full object-cover" />
+      <img src={src} alt="NhoNho gallery image" className="w-full h-full object-cover" />
     </div>
   );
 }

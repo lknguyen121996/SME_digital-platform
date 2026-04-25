@@ -71,7 +71,7 @@ function Blog() {
             </div>
             <div>
               <p className="font-['Beautique_Display:Bold'] text-[13vh] text-[#5d080a] text-right leading-normal">
-                Vang "Viết"
+                Vang &quot;Viết&quot;
               </p>
             </div>
           </div>

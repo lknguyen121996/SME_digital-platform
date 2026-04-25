@@ -26,10 +26,12 @@ function Hero() {
 
       {/* Wine Bottle - Responsive with clamp */}
       <div className="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 hero-wine z-[25] w-[clamp(120px,25vw,276px)] h-[clamp(400px,85vw,955px)]">
-        <img
-          src={imgWine.src}
-          alt="Wine"
-          className="hero-wine-pour w-[25vw] h-[80vh] object-contain scale-[1.2]"
+        <Image
+          src={imgWine}
+          alt="Wine bottle"
+          fill
+          className="object-contain hero-wine-pour"
+          sizes="(max-width: 768px) 25vw, 276px"
         />
       </div>
 
