@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary-500: #701620;
+  --color-primary-700: #5a1118;
+  --color-secondary-500: #69624a;
+  --color-neutral-700: #2c2c2c;
+  --color-neutral-100: #f9f8f6;
+  --color-background: #ffffff;
+  --color-surface: #f6f5f1;
+
+  /* Fonts */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Myriad Pro', 'Segoe UI', sans-serif;
+}
+
+/* Custom font faces - Myriad Pro approximation with similar fonts */
+@font-face {
+  font-family: 'Myriad Pro';
+  src: local('Myriad Pro');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: local('Myriad Pro Semibold');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: local('Myriad Pro Bold');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-neutral-700);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Hero Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wineSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes curtainOpen {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(8px); }
+}
+
+.hero-bg {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.hero-logo {
+  opacity: 0;
+  animation: fadeInUp 1.6s ease-out 0.4s forwards;
+}
+
+.hero-title {
+  opacity: 0;
+  animation: fadeInUp 1.6s ease-out 0.8s forwards;
+}
+
+.hero-wine-pour {
+  opacity: 0;
+  animation: wineSlideIn 0.8s ease-out forwards;
+}
+
+.hero-wine-bottle {
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-bg {
+  opacity: 0;
+  animation: curtainOpen 2.4s ease-out forwards;
+  transform-origin: center;
+}
+
+.hero-wine-bottle {
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-cta {
+  opacity: 0;
+  animation: fadeInUp 1.6s ease-out 1.6s forwards;
+}
+
+.hero-cta-link:hover span {
+  letter-spacing: 0.2em;
+}
+
+.hero-cta-link:hover img {
+  animation: slideRight 0.3s ease-out forwards;
+}
+
+/* AboutUs Background Animation - removed curtainDown, using static background */
