@@ -16,6 +16,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | [06-vietnamese-content](./docs/06-vietnamese-content.md) | i18n, formatting, content rules |
 | [07-typescript-practices](./docs/07-typescript-practices.md) | TypeScript constraints and practices |
 | [08-api-clients](./docs/08-api-clients.md) | API client patterns |
+| [09-medusa-integration](./docs/09-medusa-integration.md) | Medusa JS SDK integration guide |
+
 
 ---
 
