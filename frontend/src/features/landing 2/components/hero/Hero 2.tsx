@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import imgWine from '@/features/landing/assets/wine.png';
-import imgLogo from '@/features/landing/assets/Calque_1.png';
-import imgCoGu from '@/features/landing/assets/cogu.png';
-import imgArrow from '@/features/landing/assets/arrow.svg';
+import Link from 'next/link';
 import Navigation from '@/components/layout/Navigation';
 
 // Hero Assets - from Figma
+const imgWine = 'https://www.figma.com/api/mcp/asset/b8e7e8c5-7c7b-4f8e-9d2a-1c3b4d5e6f7a';
+const imgLogo = 'https://www.figma.com/api/mcp/asset/0b4f89f3-4fcd-40a6-b097-9c2cf39b77a6';
+const imgCoGu = 'https://www.figma.com/api/mcp/asset/35e9f216-ae5f-4fb4-b0c6-21f7da31d2e9';
+const imgArrow = 'https://www.figma.com/api/mcp/asset/daf9e9f6-35ca-4d06-8a26-9a3044d78285';
 const imgBottom = 'https://www.figma.com/api/mcp/asset/70b53a19-71c5-42a5-9ddb-c10f0a3a98e5';
 const imgFrameLogo = 'https://www.figma.com/api/mcp/asset/0b4f89f3-4fcd-40a6-b097-9c2cf39b77a6';
 const imgThuongVang = 'https://www.figma.com/api/mcp/asset/35e9f216-ae5f-4fb4-b0c6-21f7da31d2e9';
@@ -82,7 +83,7 @@ function Hero() {
           NhoNho – Ngôi nhà của rượu vang hảo hạng, được tuyển chọn dành cho người có gu.
         </p>
 
-        <a
+        <Link
           href="/shop"
           className="flex items-center gap-[1vw] md:gap-[1.2vh] group hero-cta-link"
         >
@@ -97,7 +98,7 @@ function Hero() {
               className="object-contain group-hover:translate-x-2 transition-transform duration-300"
             />
           </div>
-        </a>
+        </Link>
       </div>
 
       {/* Navigation */}

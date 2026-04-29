@@ -22,7 +22,7 @@ db-logs: ## View database logs
 
 # Backend
 backend-dev: ## Start Medusa backend in development
-	cd backend && npm run dev
+	cd backend/apps/backend && npm run dev
 
 backend-build: ## Build Medusa backend
 	cd backend && npm run build

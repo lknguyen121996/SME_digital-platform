@@ -69,7 +69,10 @@ export function MedusaProvider({ children }: MedusaProviderProps) {
   useEffect(() => {
     const storedCartId = localStorage.getItem(CART_ID_KEY);
     if (storedCartId) {
-      fetchCart(storedCartId);
+      // Use requestAnimationFrame to avoid cascading renders
+      requestAnimationFrame(() => {
+        fetchCart(storedCartId);
+      });
     }
   }, [fetchCart]);
 

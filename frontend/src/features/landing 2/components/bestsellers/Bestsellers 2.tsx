@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import imgArrow from '@/features/landing/assets/arrow.svg';
+import Link from 'next/link';
 import type { MedusaProduct } from '@/types/medusa';
 
 // Bestsellers Assets - from Figma
+const imgArrow = 'https://www.figma.com/api/mcp/asset/daf9e9f6-35ca-4d06-8a26-9a3044d78285';
 const imgTitle = 'https://www.figma.com/api/mcp/asset/daf9e9f6-35ca-4d06-8a26-9a3044d78285';
 
 /**
@@ -144,7 +145,7 @@ function Bestsellers() {
             className="absolute inset-0 w-full h-full object-contain"
           />
         </div>
-        <a href="/shop" className="relative z-30 flex items-center justify-end gap-[1vh] group cursor-pointer">
+        <Link href="/shop" className="relative z-30 flex items-center justify-end gap-[1vh] group cursor-pointer">
           <span className="font-['Myriad_Pro:Bold'] text-[2vh] text-[#701620] text-center uppercase">XEM THÊM</span>
           <div className="relative w-[5vh] h-[1vh] overflow-hidden">
             <Image
@@ -154,7 +155,7 @@ function Bestsellers() {
               className="object-contain group-hover:translate-x-2 transition-transform duration-300"
             />
           </div>
-        </a>
+        </Link>
       </div>
 
       {/* Products Grid */}

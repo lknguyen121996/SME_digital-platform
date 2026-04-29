@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import '@/app/globals.css';
+import { MedusaProvider } from '@/providers/MedusaProvider';
+import Navigation from '@/components/layout/Navigation';
+import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'NhoNho - Ngôi nhà của rượu vang hảo hạng',
@@ -12,8 +15,12 @@ export default function FrontstoreLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen w-full bg-white">
-      {children}
-    </div>
+    <MedusaProvider>
+      <div className="min-h-screen w-full bg-white">
+        <Navigation />
+        {children}
+        <Footer />
+      </div>
+    </MedusaProvider>
   );
 }

@@ -16,7 +16,7 @@ function Navigation() {
         <nav className="col-span-4 pl-[7.5vw] flex gap-[3vw] items-center">
           <Link href="/" className="text-[1.2vw] md:text-[1vw] text-[#701620] hover:text-[#901825] transition-colors duration-300">Trang Chủ</Link>
           <a href="/about" className="text-[1.2vw] md:text-[1vw] text-[#2c2c2c] hover:text-[#701620] transition-colors duration-300">Về chúng tôi</a>
-          <a href="/shop" className="text-[1.2vw] md:text-[1vw] text-[#2c2c2c] hover:text-[#701620] transition-colors duration-300">Cửa hàng</a>
+          <Link href="/shop" className="text-[1.2vw] md:text-[1vw] text-[#2c2c2c] hover:text-[#701620] transition-colors duration-300">Cửa hàng</Link>
         </nav>
 
         {/* Center Logo - Column 5 (middle) */}
