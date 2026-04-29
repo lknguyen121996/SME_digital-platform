@@ -13,16 +13,16 @@
 
 ```
 nhonho/
-├── nhonho-frontend/     # Next.js 14 frontend (App Router)
-├── nhonho-medusa/       # Medusa v2 E-commerce API
-├── nhonho-strapi/       # Strapi v5 Headless CMS
-├── docker-compose.yml    # Docker orchestration
-├── nginx/               # Reverse proxy config
-├── scripts/             # Database init scripts
-├── .env.example         # Environment template
-├── ARCHITECTURE.md      # Full architecture documentation
-├── SPEC.md              # Technical specification
-└── CLAUDE.md           # This file
+├── frontend/              # Next.js 16 frontend (App Router)
+├── backend/               # Medusa v2 E-commerce API
+│   └── apps/backend/      # Medusa application
+├── docker-compose.yml     # PostgreSQL 15 database
+├── nginx/                 # Reverse proxy config
+├── scripts/               # Database init scripts
+├── .env.example           # Environment template
+├── ARCHITECTURE.md        # Full architecture documentation
+├── SPEC.md                # Technical specification
+└── CLAUDE.md             # This file
 ```
 
 ## Development Priorities
