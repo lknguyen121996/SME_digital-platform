@@ -62,3 +62,40 @@ Run `/gsd-code-review` before creating PR to catch:
 - Commit message bằng tiếng Anh
 - Giải thích ngắn gọn, đi thẳng vào vấn đề
 - Khi không chắc, hỏi trước khi làm
+
+## Design-to-Code Workflow
+
+### Figma MCP
+
+```bash
+# 1. Load Figma file
+mcp__figma__add_figma_file { "url": "https://www.figma.com/file/xxx" }
+
+# 2. View component/node thumbnail
+mcp__figma__view_node { "file_key": "xxx", "node_id": "123:456" }
+
+# 3. Read design comments
+mcp__figma__read_comments { "file_key": "xxx" }
+
+# 4. Post feedback comment
+mcp__figma__post_comment { "file_key": "xxx", "node_id": "123:456", "x": 100, "y": 100, "message": "feedback" }
+```
+
+### Playwright MCP
+
+```bash
+# 1. Start browser
+mcp__playwright__init-browser { "url": "http://localhost:3000" }
+
+# 2. Take screenshot / get snapshot
+mcp__playwright__get-screenshot
+mcp__playwright__get-full-snapshot
+
+# 3. Get interactive elements
+mcp__playwright__get-interactive-snapshot
+
+# 4. Run custom code
+mcp__playwright__execute-code { "code": "async function run(page) { ... }" }
+```
+
+See [04-architecture](./04-architecture.md) and [03-testing-strategy](./03-testing-strategy.md) for details.

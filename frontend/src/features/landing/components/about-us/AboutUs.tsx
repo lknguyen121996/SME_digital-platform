@@ -3,9 +3,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-// About Us Assets - from Figma
-const imgGrape = 'https://www.figma.com/api/mcp/asset/3879e84a-ecc6-4106-9c0f-4a70798de87d';
-const imgGroup = 'https://www.figma.com/api/mcp/asset/61e522a0-ec75-4381-a980-1b8a8ab73502';
+// About Us Assets
+import imgGrape from '@/features/landing/assets/grape.png';
+
+const ASSET_GRAPE = imgGrape.src;
+const ASSET_GROUP = imgGrape.src;
 
 function AboutUs() {
   const { ref: sectionRef, isVisible, isFadingOut } = useIntersectionObserver();
@@ -20,10 +22,7 @@ function AboutUs() {
         </h2>
 
         <div className={`hidden lg:block absolute left-1/2 top-[14vh] -translate-x-1/2 w-[60vh] h-[65.8vh] transition-all duration-1000 delay-200 ${isVisible && !isFadingOut ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'}`}>
-          <img src={imgGrape} alt="" className="absolute inset-0 w-full h-full object-contain" />
-          <div className="absolute bottom-[14.4vh] left-[20.3vh] w-[26.3vh] h-[1.6vh]">
-            <img src={imgGroup} alt="" className="w-full h-full object-contain" />
-          </div>
+          <img src={ASSET_GRAPE} alt="" className="absolute inset-0 w-full h-full object-contain" />
         </div>
 
         <div className={`relative flex flex-col md:flex-row items-start md:items-center justify-between gap-[4vh] md:gap-[6vh] mt-[6vh] md:mt-[11.4vh] transition-all duration-1000 delay-400 ${isVisible && !isFadingOut ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>

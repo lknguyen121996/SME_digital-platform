@@ -66,9 +66,9 @@ nhonho/
 
 ```bash
 # Via MCP tools (preferred)
-mcp__playwright__browser_navigate
-mcp__playwright__browser_snapshot
-mcp__playwright__browser_click
+mcp__playwright__init-browser
+mcp__playwright__get-screenshot
+mcp__playwright__get-full-snapshot
 
 # Or CLI
 npx playwright test
@@ -78,12 +78,13 @@ npx playwright test
 
 | Tool | Purpose |
 |------|---------|
-| `mcp__playwright__browser_navigate` | Navigate to URL |
-| `mcp__playwright__browser_snapshot` | Get page structure |
-| `mcp__playwright__browser_take_screenshot` | Visual verification |
-| `mcp__playwright__browser_click` | Interact with elements |
-| `mcp__playwright__browser_console_messages` | Check console errors |
-| `mcp__playwright__browser_fill_form` | Fill form fields |
+| `mcp__playwright__init-browser` | Initialize browser with URL |
+| `mcp__playwright__get-screenshot` | Take screenshot of current page |
+| `mcp__playwright__get-full-snapshot` | Get complete page structure |
+| `mcp__playwright__get-interactive-snapshot` | Get interactive elements with screenshot |
+| `mcp__playwright__get-text-snapshot` | Get all text content |
+| `mcp__playwright__execute-code` | Run custom Playwright code |
+| `mcp__playwright__get-full-dom` | Get full DOM |
 
 ### Page Test Checklist
 

@@ -177,3 +177,54 @@ POST   /store/loyalty/redeem
 | `/account/*` | User account | Medusa |
 | `/admin/` | Medusa admin | Medusa |
 | `/strapi/` | Strapi admin | Strapi |
+
+## Design-to-Code Workflow
+
+### Figma MCP Integration
+
+Use Figma MCP tools to fetch design assets directly during development:
+
+| Tool | Purpose |
+|------|---------|
+| `mcp__figma__add_figma_file` | Load a Figma file into context |
+| `mcp__figma__view_node` | Get thumbnail of a specific node |
+| `mcp__figma__read_comments` | Read comments/feedback on designs |
+| `mcp__figma__post_comment` | Post comment on a node |
+
+### Figma Workflow
+
+```bash
+# 1. Add Figma file URL to context
+mcp__figma__add_figma_file
+# URL: https://www.figma.com/file/xxxxx
+
+# 2. View specific components/nodes
+mcp__figma__view_node
+# file_key: from URL
+# node_id: format "123:456" (from Figma)
+
+# 3. Read design comments for feedback
+mcp__figma__read_comments
+# file_key: from URL
+```
+
+### Asset Fetching Example
+
+```typescript
+// Fetch Figma node thumbnail for component preview
+async function getFigmaAsset(fileKey: string, nodeId: string) {
+  const view = await mcp__figma__view_node({ file_key, node_id });
+  return view.thumbnail;
+}
+```
+
+### Design Files
+
+| File | Purpose | Access |
+|------|---------|--------|
+| [NhoNho Store Design](https://figma.com) | Main storefront UI | Figma team |
+| [Component Library](https://figma.com) | Shared components | Figma team |
+
+## Playwright Testing
+
+See [Testing Strategy](./03-testing-strategy.md) for Playwright MCP integration.

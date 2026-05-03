@@ -8,7 +8,7 @@ const imgMidsectionWomanPouringVinegarSpoonHeldByFriend2 = 'https://www.figma.co
 const imgMidsectionWomanPouringVinegarSpoonHeldByFriend3 = 'https://www.figma.com/api/mcp/asset/c83c9cc6-3a83-4d1e-bbd1-c5bcdbcac0cb';
 const imgMidsectionWomanPouringVinegarSpoonHeldByFriend4 = 'https://www.figma.com/api/mcp/asset/951ebde6-f766-483e-a5d4-50c77f21d419';
 const imgVector25 = 'https://www.figma.com/api/mcp/asset/68c7e01a-13be-4d85-9c3c-f750f8cc91b7';
-const imgBlogDateIcon = 'https://www.figma.com/api/mcp/asset/d23ebdc7-d53e-4103-b635-4c2fe1d63647';
+import calendar_icon from '@/features/landing/assets/calendar_icon.png';
 
 const blogPosts: BlogPost[] = [
   {
@@ -43,7 +43,7 @@ function BlogCard({ post }: { post: BlogPost }) {
       <div className="flex flex-col gap-[1.6vh] p-[2.4vh]">
         <div className="flex gap-[0.8vh] items-center">
           <div className="w-[1.8vh] h-[1.8vh]">
-            <img src={imgBlogDateIcon} alt="" className="w-full h-full object-contain" />
+            <img src={calendar_icon.src} alt="" className="w-full h-full object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(36%) sepia(13%) saturate(143%) hue-rotate(5deg)' }} />
           </div>
           <p className="font-['Myriad_Pro:Regular'] text-[1.4vh] text-[#69624a]">{post.date}</p>
         </div>
