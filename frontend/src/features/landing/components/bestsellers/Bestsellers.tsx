@@ -2,6 +2,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { MedusaProduct } from '@/types/medusa';
 
+// Helper function to format price from variant
+function formatVNDPrice(amount: string): string {
+  return new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+    minimumFractionDigits: 0,
+  }).format(parseInt(amount, 10));
+}
+
+// Get price string from product variant (for landing page)
+function getVariantPrice(product: MedusaProduct): string | null {
+  const price = product.variants[0]?.prices?.[0];
+  return price ? formatVNDPrice(price.amount) : null;
+}
+
 // Bestsellers Assets
 import imgBestseller from '@/features/landing/assets/bestseller.svg';
 import imgLine from '@/features/landing/assets/line.svg';
@@ -96,11 +111,10 @@ function ProductCardStyled({ product }: { product: MedusaProduct }) {
           {product.title}
         </p>
         <p className="font-['Myriad_Pro:Bold'] text-[1.8vh] text-[#701620] leading-normal">
-          {product.variants[0]?.prices[0] && new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND',
-            minimumFractionDigits: 0,
-          }).format(parseInt(product.variants[0].prices[0].amount, 10))}
+          {(() => {
+            const p = product.variants[0]?.prices?.[0];
+            return p ? formatVNDPrice(p.amount) : null;
+          })()}
         </p>
       </div>
     </div>
@@ -123,11 +137,10 @@ function ProductCardLarge({ product }: { product: MedusaProduct }) {
           {product.title}
         </p>
         <p className="font-['Myriad_Pro:Bold'] text-[1.8vh] text-[#701620] leading-normal">
-          {product.variants[0]?.prices[0] && new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND',
-            minimumFractionDigits: 0,
-          }).format(parseInt(product.variants[0].prices[0].amount, 10))}
+          {(() => {
+            const p = product.variants[0]?.prices?.[0];
+            return p ? formatVNDPrice(p.amount) : null;
+          })()}
         </p>
       </div>
     </div>

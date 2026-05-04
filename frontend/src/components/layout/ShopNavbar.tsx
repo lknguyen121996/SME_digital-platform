@@ -1,8 +1,7 @@
 'use client';
 
-import { MedusaProvider } from '@/providers/MedusaProvider';
-import Link from 'next/link';
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -10,26 +9,17 @@ import logo_main from '@/features/landing/assets/logo_main.svg';
 import logo_title from '@/features/landing/assets/logo_title.svg';
 import logo_slogan from '@/features/landing/assets/logo_slogan.svg';
 import imgUserIcon from '@/features/landing/assets/user-icon.png';
-import { CartIcon } from '@/components/layout/CartIcon';
-import Footer from '@/components/layout/Footer';
+import imgCartIcon from '@/features/landing/assets/Cart.png';
 
-export default function FrontstoreLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <MedusaProvider>
-      <ShopNavbar />
-      {children}
-      <Footer />
-    </MedusaProvider>
-  );
+interface ShopNavbarProps {
+  cartItemCount?: number;
+  className?: string;
 }
 
-function ShopNavbar() {
+export function ShopNavbar({ cartItemCount = 0, className }: ShopNavbarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
 
   const handleSearch = (e: React.FormEvent) => {
@@ -46,7 +36,8 @@ function ShopNavbar() {
   return (
     <header
       className={cn(
-        'w-full bg-[#701620] sticky top-0 z-40'
+        'w-full bg-[#701620] sticky top-0 z-40',
+        className
       )}
     >
       <div className="max-w-[1400px] mx-auto px-4 py-3">
@@ -114,7 +105,23 @@ function ShopNavbar() {
                 className="w-6 h-6 brightness-0 invert"
               />
             </Link>
-            <CartIcon />
+            <Link
+              href="/cart"
+              className="p-2 hover:bg-white/10 rounded-full transition-colors relative"
+            >
+              <Image
+                src={imgCartIcon}
+                alt="Cart"
+                width={24}
+                height={24}
+                className="w-6 h-6 brightness-0 invert"
+              />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#ffc107] text-[#701620] text-xs font-bold rounded-full flex items-center justify-center">
+                  {cartItemCount > 9 ? '9+' : cartItemCount}
+                </span>
+              )}
+            </Link>
           </div>
         </div>
       </div>

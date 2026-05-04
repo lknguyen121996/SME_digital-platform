@@ -4,7 +4,16 @@
  */
 
 /**
- * Money amount representation
+ * Calculated price from Medusa (for store products)
+ */
+export interface CalculatedPrice {
+  calculated_amount: number | null;
+  original_amount: number | null;
+  currency_code: string | null;
+}
+
+/**
+ * Money amount representation (legacy/cart use)
  */
 export interface MoneyAmount {
   amount: string;
@@ -33,7 +42,8 @@ export interface ProductOption {
 export interface ProductVariant {
   id: string;
   title: string;
-  prices: MoneyAmount[];
+  prices?: MoneyAmount[]; // legacy format
+  calculated_price?: CalculatedPrice; // Medusa store API format
   inventory_quantity: number;
   options: ProductOptionValue[];
 }
@@ -64,7 +74,7 @@ export interface MedusaProduct {
 }
 
 /**
- * Cart line item
+ * Cart line item - for adding/updating items
  */
 export interface CartLineItem {
   variant_id: string;
@@ -72,11 +82,21 @@ export interface CartLineItem {
 }
 
 /**
- * Cart summary
+ * Cart line item response (from Medusa API)
+ */
+export interface CartLineItemResponse {
+  id: string;
+  variant_id: string;
+  quantity: number;
+}
+
+/**
+ * Cart summary - Medusa API response format
  */
 export interface Cart {
   id: string;
-  items: CartLineItem[];
+  items: CartLineItemResponse[];
   region_id: string;
-  total: MoneyAmount;
+  currency_code: string; // For formatting prices
+  total: number;
 }

@@ -80,7 +80,10 @@ export function MedusaProvider({ children }: MedusaProviderProps) {
     try {
       setIsLoading(true);
       setError(null);
-      const response = await sdk.store.cart.create({});
+      const regionId = process.env.NEXT_PUBLIC_MEDUSA_DEFAULT_REGION_ID;
+      const response = await sdk.store.cart.create(
+        regionId ? { region_id: regionId } : {}
+      );
       if (response.cart) {
         const newCart = response.cart as unknown as Cart;
         setCart(newCart);
@@ -100,20 +103,24 @@ export function MedusaProvider({ children }: MedusaProviderProps) {
 
   const addItem = useCallback(
     async (item: CartLineItem): Promise<void> => {
-      if (!cartId) {
+      let currentCartId = cartId;
+
+      if (!currentCartId) {
         const newCartId = await createCart();
         if (!newCartId) return;
+        currentCartId = newCartId;
       }
 
       try {
         setIsLoading(true);
         setError(null);
-        const response = await sdk.store.cart.createLineItem(cartId!, {
+        const response = await sdk.store.cart.createLineItem(currentCartId, {
           variant_id: item.variant_id,
           quantity: item.quantity,
         });
         if (response.cart) {
           setCart(response.cart as unknown as Cart);
+          setCartId(currentCartId);
         }
       } catch (err) {
         console.error("Failed to add item:", err);

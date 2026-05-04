@@ -2,14 +2,14 @@
 
 import Link from 'next/link';
 import { useCart } from '@/providers/MedusaProvider';
+import type { CartLineItemResponse } from '@/types/medusa';
 
-function formatPrice(amount: string, currencyCode: string): string {
-  const num = parseInt(amount, 10);
+function formatPrice(amount: number, currencyCode: string): string {
   return new Intl.NumberFormat('vi-VN', {
     style: 'currency',
     currency: currencyCode.toUpperCase(),
     minimumFractionDigits: 0,
-  }).format(num);
+  }).format(amount);
 }
 
 export default function CartPage() {
@@ -88,7 +88,7 @@ export default function CartPage() {
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
                 {cart.items.map((item) => (
                   <div
-                    key={item.variant_id}
+                    key={item.id}
                     className="flex items-center gap-6 p-4 border-b border-[#d4cfc4] last:border-b-0"
                   >
                     {/* Product Image Placeholder */}
@@ -98,21 +98,21 @@ export default function CartPage() {
 
                     {/* Product Info */}
                     <div className="flex-1">
-                      <p className="font-semibold text-[#2c2c2c]">Sản phẩm #{item.variant_id.slice(0, 8)}</p>
+                      <p className="font-semibold text-[#2c2c2c]">Sản phẩm #{item.variant_id.slice(-8)}</p>
                       <p className="text-[#69624a] text-sm mt-1">SKU: {item.variant_id}</p>
                     </div>
 
                     {/* Quantity Controls */}
                     <div className="flex items-center gap-2">
                       <button
-                        onClick={() => handleUpdateQuantity(item.variant_id, item.quantity - 1)}
+                        onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
                         className="w-8 h-8 border border-[#d4cfc4] rounded-md flex items-center justify-center hover:bg-[#f3f1eb] transition-colors"
                       >
                         -
                       </button>
                       <span className="w-12 text-center">{item.quantity}</span>
                       <button
-                        onClick={() => handleUpdateQuantity(item.variant_id, item.quantity + 1)}
+                        onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
                         className="w-8 h-8 border border-[#d4cfc4] rounded-md flex items-center justify-center hover:bg-[#f3f1eb] transition-colors"
                       >
                         +
@@ -121,7 +121,7 @@ export default function CartPage() {
 
                     {/* Remove Button */}
                     <button
-                      onClick={() => handleRemoveItem(item.variant_id)}
+                      onClick={() => handleRemoveItem(item.id)}
                       className="text-[#69624a] hover:text-red-600 transition-colors p-2"
                       aria-label="Remove item"
                     >
@@ -153,8 +153,8 @@ export default function CartPage() {
                   <div className="flex justify-between">
                     <span className="text-[#69624a]">Tạm tính</span>
                     <span className="font-semibold">
-                      {cart.total?.amount
-                        ? formatPrice(cart.total.amount, cart.total.currency_code)
+                      {cart.total > 0
+                        ? formatPrice(cart.total, cart.currency_code)
                         : '0 ₫'}
                     </span>
                   </div>
@@ -165,8 +165,8 @@ export default function CartPage() {
                   <div className="border-t border-[#d4cfc4] pt-4 flex justify-between">
                     <span className="font-semibold text-[#2c2c2c]">Tổng cộng</span>
                     <span className="font-bold text-[#701620] text-xl">
-                      {cart.total?.amount
-                        ? formatPrice(cart.total.amount, cart.total.currency_code)
+                      {cart.total > 0
+                        ? formatPrice(cart.total, cart.currency_code)
                         : '0 ₫'}
                     </span>
                   </div>

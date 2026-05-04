@@ -44,11 +44,10 @@ body {
   font-family: var(--font-body);
   color: var(--color-neutral-700);
   background-color: var(--color-background);
-  overflow-x: hidden;
 }
 
 html {
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .font-display {

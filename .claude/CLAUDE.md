@@ -28,6 +28,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 3. **Run Playwright tests** after creating/modifying pages
 4. **Use GSD workflow commands** for project management
 5. **Commit messages in English**, Vietnamese for user communication
+6. **Use Figma MCP to fetch UI information before designing** - Inspect Figma designs via `mcp__figma__view_node` before implementing any frontend component or page
+7. **Use Playwright MCP to test after frontend implementation** - Verify UI and functionality via Playwright MCP after completing frontend code changes
 
 ---
 

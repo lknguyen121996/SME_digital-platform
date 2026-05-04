@@ -2,9 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Suppress workspace root warning - we're in a monorepo with multiple lockfiles
-  turbopack: {
-    root: '/Users/lk.nguyen/Documents/SME_digital-platform/frontend',
-  },
   allowedDevOrigins: ['hardcover-parameter-decade.ngrok-free.dev'],
   async headers() {
     return [

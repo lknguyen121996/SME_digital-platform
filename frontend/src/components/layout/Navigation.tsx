@@ -1,10 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import logo_main from '@/features/landing/assets/logo_main.svg';
 import logo_title from '@/features/landing/assets/logo_title.svg';
 import logo_slogan from '@/features/landing/assets/logo_slogan.svg';
 import imgUserIcon from '@/features/landing/assets/user-icon.png';
-import imgCartIcon from '@/features/landing/assets/Cart.png';
+import { CartIcon } from '@/components/layout/CartIcon';
 
 function Navigation() {
   return (
@@ -38,9 +40,7 @@ function Navigation() {
             <a href="/account" className="p-[1vh] hover:scale-110 transition-transform duration-300">
               <Image src={imgUserIcon} alt="User" width={40} height={40} className="w-[2.5vh] h-[2.5vh]" />
             </a>
-            <a href="/cart" className="p-[1vh] hover:scale-110 transition-transform duration-300">
-              <Image src={imgCartIcon} alt="Cart" width={40} height={40} className="w-[2.5vh] h-[2.5vh]" />
-            </a>
+            <CartIcon className="hover:scale-110 transition-transform duration-300" bubbleSize="sm" variant="light" />
           </div>
         </nav>
       </div>
@@ -57,9 +57,7 @@ function Navigation() {
         <a href="/account" className="hover:opacity-70 transition-opacity duration-300">
           <Image src={imgUserIcon} alt="User" width={24} height={24} />
         </a>
-        <a href="/cart" className="hover:opacity-70 transition-opacity duration-300">
-          <Image src={imgCartIcon} alt="Cart" width={24} height={24} />
-        </a>
+        <CartIcon bubbleSize="sm" />
       </div>
     </header>
   );
