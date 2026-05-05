@@ -172,9 +172,12 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <button className="w-full bg-[#701620] text-white py-4 rounded-md font-semibold hover:bg-[#901825] transition-colors">
+                <Link
+                  href="/checkout"
+                  className="block w-full bg-[#701620] text-white py-4 rounded-md font-semibold hover:bg-[#901825] transition-colors text-center"
+                >
                   Tiến hành thanh toán
-                </button>
+                </Link>
 
                 <p className="text-[#69624a] text-sm text-center mt-4">
                   Giá đã bao gồm VAT

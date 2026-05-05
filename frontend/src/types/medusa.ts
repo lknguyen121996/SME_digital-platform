@@ -100,3 +100,65 @@ export interface Cart {
   currency_code: string; // For formatting prices
   total: number;
 }
+
+/**
+ * Address for checkout
+ */
+export interface CheckoutAddress {
+  first_name: string;
+  last_name: string;
+  address_1: string;
+  address_2?: string;
+  city: string;
+  country_code: string;
+  postal_code: string;
+  phone?: string;
+}
+
+/**
+ * Shipping option from Medusa
+ */
+export interface ShippingOption {
+  id: string;
+  name: string;
+  description?: string;
+  amount: number;
+}
+
+/**
+ * Complete cart response type
+ */
+export interface CompleteCartResponse {
+  type: 'order';
+  order: {
+    id: string;
+    display_id: string;
+    status: string;
+    total: number;
+  };
+}
+
+/**
+ * Extended Cart with more fields from Medusa
+ */
+export interface CartExtended {
+  id: string;
+  items: CartLineItemResponse[];
+  region_id: string;
+  currency_code: string;
+  email?: string;
+  shipping_address?: CheckoutAddress;
+  billing_address?: CheckoutAddress;
+  subtotal?: number;
+  shipping_total?: number;
+  tax_total?: number;
+  total: number;
+  shipping_methods?: Array<{
+    id: string;
+    shipping_option_id: string;
+    amount: number;
+  }>;
+  discounts?: Array<{
+    code: string;
+  }>;
+}
